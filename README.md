@@ -1,82 +1,68 @@
-# VentasApi
+#  VentasWeb
 
-API REST desarrollada en **ASP.NET Core 8 Web API** para la gestión de ventas.  
-Incluye endpoints para **productos, clientes y ventas**, con validaciones de stock y email, utilizando **SQL Server** como base de datos y **Dapper** para consultas.
-
----
-
-##  Tecnologías
-- .NET 8 (ASP.NET Core Web API)
-- SQL Server 2022
-- Dapper (Micro ORM)
-- Swagger / OpenAPI
+Una aplicación **ASP.NET Core MVC (Razor Pages)** que funciona como **frontend** para la [VentasApi](../VentasApi).  
+Permite visualizar productos, registrar ventas con carrito de compras y consultar historial de ventas por cliente.
 
 ---
 
-## Estructura del proyecto
-VentasApi/
-├── Controllers/ # Endpoints (Productos, Clientes, Ventas)
-├── Models/ # DTOs y modelos
-├── appsettings.json # Configuración (cadena de conexión a SQL Server)
-├── Program.cs # Configuración de la API
-└── README.md
-
+##  Tecnologías usadas
+- **ASP.NET Core 8 MVC (Razor Pages)**
+- **Bootstrap 5** (UI responsiva)
+- **JavaScript (fetch API)** para comunicación con la API
+- **Swagger (en la API backend)**
 
 ---
 
-## ⚙️ Configuración
+##  Estructura del proyecto
 
-### 1) Base de datos
-Ejecuta el script de creación de la BD y tablas:
+│── Controllers/ # Controladores MVC (Home, Productos, Ventas)
+│── Models/ # DTOs y ViewModels para consumir la API
+│── Views/ # Vistas Razor (Productos, Ventas, etc.)
+│── wwwroot/ # Archivos estáticos (css, js, bootstrap)
+│── appsettings.json # Configuración (url de la API)
+│── Program.cs # Configuración inicial de la app
 
-```sql
-CREATE DATABASE GestorVentas;
-GO
-USE GestorVentas;
+##  Configuración inicial
 
--- Tablas principales: Producto, Cliente, Venta, DetalleVenta
--- Incluye constraints, foreign keys y check constraints
+1. Clonar el repositorio:
 
-#Ejecución
+git clone https://github.com/tuusuario/VentasWeb.git
+cd VentasWeb
 
-Restaurar dependencias:
 dotnet restore
-
-Ejecutar en modo desarrollo:
 dotnet run
 
-Abrir en navegador:
-http://localhost:5273/swagger
+ Funcionalidades
+ Productos
 
-Endpoints principales
-Productos
+Ver listado de productos disponibles (/Productos).
 
-GET /api/productos → Lista de productos
+## Registrar Venta
 
-GET /api/productos/{id} → Detalle de producto
+Seleccionar cliente.
 
-POST /api/productos → Crear producto
+Agregar productos al carrito.
 
-Clientes
+Mostrar total.
 
-GET /api/clientes → Lista de clientes
+Enviar venta a la API para registrar.
 
-GET /api/clientes/{id} → Detalle cliente
+## Historial de Ventas
 
-POST /api/clientes → Crear cliente (valida email único)
+Consultar ventas de un cliente específico (/Ventas/Historial).
 
-Ventas
+## Validaciones
 
-POST /api/ventas → Registrar nueva venta (valida stock)
+ No se puede agregar más productos de los que hay en stock.
 
-GET /api/ventas/cliente/{id} → Historial de ventas por cliente
+Cliente debe seleccionarse antes de registrar la venta.
 
-GET /api/ventas/{id} → Detalle de una venta (cabecera + líneas)
+ El carrito no puede estar vacío.
 
-#Validaciones
+## Interfaz
 
-Stock: no permite registrar una venta si no hay inventario suficiente.
+UI construida con Bootstrap 5.
 
-Email cliente: único y en formato válido.
+Tablas dinámicas para productos y carrito.
 
-Detalle venta: no permite cantidades negativas ni precios inválidos.
+Mensajes de confirmación y error al registrar ventas
