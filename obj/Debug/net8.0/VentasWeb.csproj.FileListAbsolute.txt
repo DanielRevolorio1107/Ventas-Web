@@ -1,0 +1,7 @@
+C:\BackendVentas\VentasWeb\obj\Debug\net8.0\VentasWeb.GeneratedMSBuildEditorConfig.editorconfig
+C:\BackendVentas\VentasWeb\obj\Debug\net8.0\VentasWeb.AssemblyInfoInputs.cache
+C:\BackendVentas\VentasWeb\obj\Debug\net8.0\VentasWeb.AssemblyInfo.cs
+C:\BackendVentas\VentasWeb\obj\Debug\net8.0\VentasWeb.csproj.CoreCompileInputs.cache
+C:\BackendVentas\VentasWeb\obj\Debug\net8.0\VentasWeb.MvcApplicationPartsAssemblyInfo.cache
+C:\BackendVentas\VentasWeb\obj\Debug\net8.0\VentasWeb.RazorAssemblyInfo.cache
+C:\BackendVentas\VentasWeb\obj\Debug\net8.0\VentasWeb.RazorAssemblyInfo.cs
